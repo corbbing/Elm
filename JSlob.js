@@ -5,8 +5,6 @@ function lm(name,tag,className,parent){
 	this.element.innerHTML = this.name;
 	this.element.className = className;
 	this.children = [];
-	console.log(parent);
-	console.log(this.element);
 	if (parent instanceof lm){
 		if (parent.element){
 			parent.element.appendChild(this.element);
