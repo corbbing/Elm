@@ -2,7 +2,7 @@
 
 Allows you to make dom objects with minimal code.
 
-# Version 0.0.2
+# Version 0.0.2 (current)
 
 Allows you to change the classname of the element dynamically.
 
