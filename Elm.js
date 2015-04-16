@@ -1,3 +1,6 @@
+//Elm.js
+//Version 0.0.2
+
 function lm(name,tag,className,parent){
 	this.name = name;
 	this.class = className;
