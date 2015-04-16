@@ -11,6 +11,10 @@ function lm(name,tag,className,parent){
 			parent.children.push(this);
 		}
 	}
+	else if (typeof parent == "string"){
+		var prt = document.getElementById(parent);
+		prt.appendChild(this.element);
+	}
 	else {
 			parent.appendChild(this.element);
 		}
@@ -22,4 +26,13 @@ lm.prototype.setName = function(n){
 	for (var i = 0; i < this.children.length; i++){
 		this.element.appendChild(this.children[i].element);
 	}
+}
+
+lm.prototype.setClassName = function(n){
+	this.className = n;
+	this.element.className = n;
+}
+
+lm.prototype.addChild = function(c){
+	this.children.push(c);
 }
