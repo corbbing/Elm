@@ -39,3 +39,11 @@ lm.prototype.setClassName = function(n){
 lm.prototype.addChild = function(c){
 	this.children.push(c);
 }
+
+function generateObject(n,d){
+    var a = "";
+    for (name in d){
+    	a += "this."+name+"="+d[name]+";";
+    }
+    new lm("function "+n+"(){"+a+"}","script","",document.body);
+}
