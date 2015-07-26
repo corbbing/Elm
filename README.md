@@ -6,7 +6,7 @@ Allows you to make dom objects with minimal code.
 
 Allows you to generate classes from a dictionary object using:
 
-`generateObject(@param{**String**}ObjectName,@param{**Object**}ObjectValues*)`
+`generateObject(@param{ **String** }ObjectName,@param{**Object**}ObjectValues*)`
 
 # Version 0.0.2
 
