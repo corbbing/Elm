@@ -4,9 +4,9 @@ Allows you to make dom objects with minimal code.
 
 ## Version 0.0.3
 
-Allows you to generate classes from a dictionary object.
+Allows you to generate classes from a dictionary object using:
 
-generateObject(*@param{String}ObjectName,@param{Object}ObjectValues*
+`generateObject(*@param{String}ObjectName,@param{Object}ObjectValues*)`
 
 # Version 0.0.2
 
