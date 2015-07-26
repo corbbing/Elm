@@ -1,8 +1,14 @@
-# JSlob
+# Elm.js
 
 Allows you to make dom objects with minimal code.
 
-# Version 0.0.2 (current)
+## Version 0.0.3
+
+Allows you to generate classes from a dictionary object.
+
+generateObject(*@param{String}ObjectName,@param{Object}ObjectValues*
+
+# Version 0.0.2
 
 Allows you to change the classname of the element dynamically.
 
