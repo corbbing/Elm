@@ -13,6 +13,10 @@ effort.
 
 function lm(name,tag,className,parent,empty){
 	var conf = arguments[0];
+	// var name = conf.name || "";
+	// var tag = conf.tag || "";
+	// var className = conf.className || "";
+	// var parent = conf.parent || "";
 	this.name = name;
 	this.class = className;
 	this.element = document.createElement(tag);
@@ -75,11 +79,6 @@ lm.prototype.addChild = function(c){
 	this.children.push(c);
 }
 
-lm.prototype.setChildren = function(c){
-	this.element.children = [];
-	this.element.childNodes = (typeof c == "array") ? c : [c];
-}
-
 lm.prototype.setEvent = function(evtName, fun){
 	this.element[evtName] = fun;
 }
@@ -93,3 +92,24 @@ lm.prototype.ge=function(){
 getElement = function(string){
 	return document.getElementById(string);
 }
+
+Function.prototype.construct = function (aArgs) {
+  var oNew = Object.create(this.prototype);
+  this.apply(oNew, aArgs);
+  return oNew;
+};
+
+
+lm.prototype.create = function(name){
+	var o = eval(name);
+	var a = [this]
+	for (var i = 0; i < arguments.length; i++) {
+		if (i != 0){
+			a.push(arguments[i])
+		}
+	};
+	//console.log(oo=o);
+	return o.construct(a);
+}
+
+
