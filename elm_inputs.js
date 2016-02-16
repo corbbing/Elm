@@ -134,42 +134,6 @@ lm.ElmBsDropdown = function(target, name, options){
 	this.list.setClassName("dropdown-menu");
 }
 lm.ElmBsDropdown.prototype = Object.create(lm.prototype);
-// var t = new lm.PopupMenu(document.body,["Hello World","Hello Mars"])
-// t.add("Hello Venus");
-// t.add(["Hello Jupiter", "Hello Saturn"]);
-// t.add("Hello Pluto","Hello Uranus")
-// new lm.Para(document.body)
-
-// new lm.Button(document.body,"Click Me",function () {
-// 	console.log("Clicked")
-// })
-// new lm.Para(document.body)
-// var names = new lm.RecordPopupMenu(document.body,RECS,"name");
-// new lm.Para(document.body)
-// var link = new lm.Anchor(document.body,"Hello World","#")
-
-// new lm.Para(document.body)
-
-// new lm.Header(document.body,"Hello World", 2);
-
-// var view = new lm.Para(document.body)
-
-// <li class="dropdown">
-//   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-//   <ul class="dropdown-menu">
-//     <li><a href="#">Action</a></li>
-//     <li><a href="#">Another action</a></li>
-//     <li><a href="#">Something else here</a></li>
-//     <li role="separator" class="divider"></li>
-//     <li><a href="#">Separated link</a></li>
-//     <li role="separator" class="divider"></li>
-//     <li><a href="#">One more separated link</a></li>
-//   </ul>
-// </li>
-
-//var ddm = new lm.ElmBsDropdown(view,"Dropdown",[{name:"Home",link:"#"},{name:"About",link:"#"},{name:"Contact",link:"#"}])
-
-//new lm.Header(document.body,"Hello World!!",1)
 
 lm.FormInput = function(target, type, name){
 	this.label = new lm(name,"label","",target);
