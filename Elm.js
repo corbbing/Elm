@@ -1,26 +1,57 @@
-//Elm.js
-//Version 0.0.2
+/*
 
-function lm(name,tag,className,parent){
+Elm.js
+
+Elm allows you to build a dom using javascript syntax.
+
+The goal of this was to make it so that someone with
+little knowledge of javascript, who still understands 
+the syntax, to be able to create a webpage with little
+effort.
+
+*/
+
+function lm(name,tag,className,parent,empty){
+	var conf = arguments[0];
 	this.name = name;
 	this.class = className;
 	this.element = document.createElement(tag);
 	this.element.innerHTML = this.name;
-	this.element.className = className;
+	if (className != ""){
+		this.element.className = className;
+	}
 	this.children = [];
-	if (parent instanceof lm){
-		if (parent.element){
-			parent.element.appendChild(this.element);
-			parent.children.push(this);
+	this.dopop = false;
+	if (!empty){
+		if (parent instanceof lm){
+			if (parent.element){
+				if (parent.dopop){
+					parent.element.insertBefore(this.element,parent.element.firstChild);
+				}
+				else {
+					parent.element.appendChild(this.element);
+				}				
+				parent.children.push(this);
+			}
 		}
-	}
-	else if (typeof parent == "string"){
-		var prt = document.getElementById(parent);
-		prt.appendChild(this.element);
-	}
-	else {
+		else if (typeof parent == "string"){
+			var prt = document.getElementById(parent);
+			prt.appendChild(this.element);
+		}
+		else if (parent == "head"){
+			document.getElementsByTagName('head')[0].appendChild(this.element)
+		}
+		else {
 			parent.appendChild(this.element);
 		}
+	}
+	else {
+		return this;
+	}
+}
+
+lm.prototype.getName = function(){
+	return this.name;
 }
 
 lm.prototype.setName = function(n){
@@ -31,8 +62,12 @@ lm.prototype.setName = function(n){
 	}
 }
 
+lm.prototype.setAttr = function (key,value) {
+	this.element.setAttribute(key, value);
+}
+
 lm.prototype.setClassName = function(n){
-	this.className = n;
+	this.class = n;
 	this.element.className = n;
 }
 
@@ -40,10 +75,21 @@ lm.prototype.addChild = function(c){
 	this.children.push(c);
 }
 
-function generateObject(n,d){
-    var a = "";
-    for (name in d){
-    	a += "this."+name+"="+d[name]+";";
-    }
-    new lm("function "+n+"(){"+a+"}","script","",document.body);
+lm.prototype.setChildren = function(c){
+	this.element.children = [];
+	this.element.childNodes = (typeof c == "array") ? c : [c];
+}
+
+lm.prototype.setEvent = function(evtName, fun){
+	this.element[evtName] = fun;
+}
+
+//shorthand for getElement
+
+lm.prototype.ge=function(){
+	return this.element;
+}
+
+getElement = function(string){
+	return document.getElementById(string);
 }
